@@ -4,9 +4,12 @@ import androidx.databinding.BaseObservable;
 
 
 import androidx.databinding.Bindable;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-public class PasswordViewModel extends BaseObservable {
+public class PasswordViewModel extends ViewModel {
     private String password;
+
 
     @Bindable
     public String getPassword() {

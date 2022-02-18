@@ -1,23 +1,23 @@
 package edu.cascadia.mobile.apps.passwordcheck;
 // Adapted from https://www.bignerdranch.com/blog/two-way-data-binding-on-android-observing-your-view-with-xml/
-import androidx.databinding.BaseObservable;
 
 
-import androidx.databinding.Bindable;
+
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class PasswordViewModel extends ViewModel {
-    private String password;
+    private MutableLiveData<String> password;
+    private LiveData<String> passwordQuality;
 
 
-    @Bindable
-    public String getPassword() {
+    private MutableLiveData<String> getPassword() {
         return password;
     }
 
-    @Bindable
-    public String getPasswordQuality() {
+
+    private LiveData<String> getPasswordQuality() {
         if (password == null || password.isEmpty()) {
             return "Enter a password";
         } else if (password.equals("password")) {
@@ -32,8 +32,8 @@ public class PasswordViewModel extends ViewModel {
     public void setPassword(String password) {
         if(!this.password.equals(password)) {
             this.password = password;
-            notifyPropertyChanged(BR.passwordQuality);
-            notifyPropertyChanged(BR.password);
+            notifyPropertyChanged(passwordQuality);
+            notifyPropertyChanged(password);
         }
     }
 

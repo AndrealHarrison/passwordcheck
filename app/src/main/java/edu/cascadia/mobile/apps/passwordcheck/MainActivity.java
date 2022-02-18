@@ -5,8 +5,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.databinding.DataBindingUtil;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-
+import android.view.View;
 import edu.cascadia.mobile.apps.passwordcheck.databinding.ActivityMainBinding;
+import android.app.Activity;
 
 public class MainActivity extends AppCompatActivity {
 

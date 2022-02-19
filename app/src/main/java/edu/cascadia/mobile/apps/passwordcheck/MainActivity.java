@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     //TODO: create a private ViewModel instance variable
 
-    private ViewModel mViewModel;
+    private PasswordViewModel mViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,10 +25,11 @@ public class MainActivity extends AppCompatActivity {
 
         //TODO: Create a new PasswordViewModel object
 
-        PasswordViewModel mPVM = new PasswordViewModel();
+        PasswordViewModel mPVM = new ViewModelProvider(this).get(PasswordViewModel.class);
 
         //TODO: Set the binding's ViewModel to your new PasswordViewModel
 
         binding.setViewModel(mPVM);
+        binding.setLifecycleOwner(this);
     }
 }
